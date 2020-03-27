@@ -1,4 +1,4 @@
-package com.example.okhttptest;
+package com.example.okhttptest.model;
 
 import android.text.TextUtils;
 
