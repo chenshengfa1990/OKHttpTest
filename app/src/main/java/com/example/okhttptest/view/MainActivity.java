@@ -10,6 +10,7 @@ import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,6 +18,9 @@ import androidx.annotation.RequiresApi;
 
 import com.example.okhttptest.R;
 import com.example.okhttptest.presenter.BaiduNetdiskPresenter;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class MainActivity extends Activity implements IBaiduNetDiskView{
@@ -27,6 +31,13 @@ public class MainActivity extends Activity implements IBaiduNetDiskView{
     private BaiduNetdiskPresenter mPresenter;
 
     private String baiduAccessToken;
+
+    @BindView(R.id.textview)
+    public TextView tv;
+
+    @BindView(R.id.textview1)
+    public TextView tv1;
+
     private Handler handler = new Handler() {
 
 
@@ -44,6 +55,10 @@ public class MainActivity extends Activity implements IBaiduNetDiskView{
         mContext = this;
         mPresenter = new BaiduNetdiskPresenter(this, mContext);
         mPresenter.getBaiduAccessToken();
+
+        ButterKnife.bind(this);
+        tv.setText("Chinese");
+        tv1.setText("English");
     }
 
     /**
